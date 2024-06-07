@@ -41,7 +41,7 @@ public class PrintDialog extends JDialog implements ActionListener
 		JScrollPane scroll = new JScrollPane(textArea);
 		JButton printButton = new JButton("Print");
 
-		textArea.setEditable(false);
+		textArea.setEditable(true);
 		
 		printButton.addActionListener(this);
 		String output = FormatOutput();
@@ -53,7 +53,7 @@ public class PrintDialog extends JDialog implements ActionListener
 		getContentPane().add(printButton, "grow");
 
 		setLocationRelativeTo(parent);
-		setResizable(false);
+		setResizable(true);
 		pack();
 		setVisible(true);
 	}

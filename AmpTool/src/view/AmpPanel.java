@@ -135,17 +135,17 @@ public class AmpPanel extends JPanel  {
 		wireField = new JTextField();
 		wireField.setText(new String(wire));
 		wireField.setColumns(17);
-		wireField.setEditable(false);
+		wireField.setEditable(true);
 				
 		eqGroundField = new JTextField();
 		eqGroundField.setText(new String(eqGround));
 		eqGroundField.setColumns(17);
-		eqGroundField.setEditable(false);
+		eqGroundField.setEditable(true);
 		
 		GECField = new JTextField();
 		GECField.setText(new String(GEC));
 		GECField.setColumns(17);
-		GECField.setEditable(false);
+		GECField.setEditable(true);
 		
 		
 		// Tell accessibility tools about label/textfield pairs.
@@ -180,7 +180,7 @@ public class AmpPanel extends JPanel  {
 
 	private void setUpFormats() {
 		ampFormat = NumberFormat.getNumberInstance();
-		ampFormat.setGroupingUsed(false);
+		ampFormat.setGroupingUsed(true);
 	}
 }
 

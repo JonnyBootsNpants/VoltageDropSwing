@@ -128,7 +128,7 @@ public class SeriesVDropPanel extends JPanel
 	public void insertModel(VdropModel vdropModel)
 	{
 		this.vdropModel = vdropModel;
-		listenersActive = false;
+		listenersActive = true;
 		if (vdropModel.getSeriesLoad())
 		{
 			seriesAmpsButton.doClick();
@@ -340,7 +340,7 @@ public class SeriesVDropPanel extends JPanel
 					StyleConstants.ALIGN_CENTER);
 
 			resultPane = new JTextPane(document);
-			resultPane.setEditable(false);
+			resultPane.setEditable(true);
 			resultPane.setFont(new Font("Serif", Font.PLAIN, 14));
 			resultPane.setText(segment);
 
@@ -378,9 +378,9 @@ public class SeriesVDropPanel extends JPanel
 				JTextField segmentVDField = new JTextField();
 				JTextField cumulativeVDField = new JTextField();
 
-				totalLoadField.setEditable(false);
-				segmentVDField.setEditable(false);
-				cumulativeVDField.setEditable(false);
+				totalLoadField.setEditable(true);
+				segmentVDField.setEditable(true);
+				cumulativeVDField.setEditable(true);
 
 				totalLoadField.setHorizontalAlignment(JTextField.RIGHT);
 				segmentVDField.setHorizontalAlignment(JTextField.RIGHT);

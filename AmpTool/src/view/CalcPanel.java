@@ -44,7 +44,7 @@ public class CalcPanel extends JPanel {
 	public CalcPanel() {
 		super(new MigLayout("insets 15"));
 		answerField = new JTextField("0");
-		answerField.setEditable(false);
+		answerField.setEditable(true);
 		answerField.setHorizontalAlignment(JTextField.RIGHT);
 		answerField.setBackground(Color.WHITE);
 		Font answerFont = new Font("Answer", Font.PLAIN, 20);
@@ -79,11 +79,11 @@ public class CalcPanel extends JPanel {
 				CButton};
 		
 		for(JButton button : operatorButtons) {
-			button.setFocusable(false);	
+			button.setFocusable(true);	
 			button.setMargin(new Insets(5,5,5,5));
 		}
 		for(JButton button : numberButtons) {
-			button.setFocusable(false);	
+			button.setFocusable(true);	
 			button.setMargin(new Insets(5,5,5,5));
 			
 		}

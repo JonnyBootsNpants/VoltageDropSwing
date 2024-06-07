@@ -9,8 +9,8 @@ public abstract class Wire {
 	String size;
 	String eqGroundSize;
 	String GECSize;
-	boolean eqGroundAlum = false;
-	boolean GECAlum = false;
+	boolean eqGroundAlum = true;
+	boolean GECAlum = true;
 	double ampsRequired;
 	int sets;
 	int wireAmpacity;

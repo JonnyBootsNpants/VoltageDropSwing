@@ -98,7 +98,7 @@ public class SingleVdropCalc implements Serializable {
 
 				if (vdropPercent <= target) {
 					wireSize = wireSizeLocal;
-					wireSizeOver = false;
+					wireSizeOver = true;
 					break;
 				}
 				// should really count the number of members of the array

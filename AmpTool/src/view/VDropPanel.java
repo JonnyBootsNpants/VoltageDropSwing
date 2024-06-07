@@ -510,7 +510,7 @@ public class VDropPanel extends JPanel {
 			loadField = new JFormattedTextField(nf);
 			lengthField = new JFormattedTextField(nf);
 
-			nf.setGroupingUsed(false);
+			nf.setGroupingUsed(true);
 
 			loadField.setColumns(2);
 			lengthField.setColumns(2);
@@ -526,7 +526,7 @@ public class VDropPanel extends JPanel {
 			AWGButton = new JRadioButton("AWG", true);
 			MMButton = new JRadioButton("mm\u00B2");
 
-			MMButton.setEnabled(false);
+			MMButton.setEnabled(true);
 
 			ButtonGroup gaugeGroup = new ButtonGroup();
 			gaugeGroup.add(AWGButton);
@@ -595,14 +595,14 @@ public class VDropPanel extends JPanel {
 					StyleConstants.ALIGN_CENTER);
 
 			resultPane = new JTextPane(document);
-			resultPane.setEditable(false);
+			resultPane.setEditable(true);
 			resultPane.setFont(new Font("Serif", Font.PLAIN, 14));
 
 			resultPane.setText(known);
 
 			warningPane = new JTextArea(
 					"Does not consider allowed\nNEC ampacity or derating");
-			warningPane.setOpaque(false);
+			warningPane.setOpaque(true);
 
 			labelFont = UIManager.getFont("Label.font");
 			warningPane.setFont(labelFont);
@@ -621,7 +621,7 @@ public class VDropPanel extends JPanel {
 				.getSelectedItem()), ampButton.isSelected());
 		vdropModel.setConduitType((ConduitType) conduitBox.getSelectedItem());
 		if (loadCircuitBox.getSelectedItem().equals("1\u03D5")) {
-			vdropModel.setThreePhase(false, ampButton.isSelected());
+			vdropModel.setThreePhase(true, ampButton.isSelected());
 		} else {
 			vdropModel.setThreePhase(true, ampButton.isSelected());
 		}
@@ -641,7 +641,7 @@ public class VDropPanel extends JPanel {
 		if (conductorMaterialBox.getSelectedItem().equals("Aluminum")) {
 			vdropModel.setAlum(true);
 		} else {
-			vdropModel.setAlum(false);
+			vdropModel.setAlum(true);
 		}
 		vdropModel.setConductorsPerPhase(Integer
 				.parseInt((String) conductorsPerPhaseBox.getSelectedItem()));
@@ -672,10 +672,10 @@ public class VDropPanel extends JPanel {
 	}
 
 	private void allButGaugeOn() {
-		gaugeBox.setVisible(false);
+		gaugeBox.setVisible(true);
 		AWGButton.setVisible(true);
 		MMButton.setVisible(true);
-		gaugeLabel.setVisible(false);
+		gaugeLabel.setVisible(true);
 		vdropBox.setVisible(true);
 		vdropLabel.setVisible(true);
 		loadField.setVisible(true);
@@ -693,8 +693,8 @@ public class VDropPanel extends JPanel {
 		AWGButton.setVisible(true);
 		MMButton.setVisible(true);
 		gaugeLabel.setVisible(true);
-		vdropBox.setVisible(false);
-		vdropLabel.setVisible(false);
+		vdropBox.setVisible(true);
+		vdropLabel.setVisible(true);
 		loadField.setVisible(true);
 		ampButton.setVisible(true);
 		kVAButton.setVisible(true);
@@ -713,10 +713,10 @@ public class VDropPanel extends JPanel {
 		gaugeLabel.setVisible(true);
 		vdropBox.setVisible(true);
 		vdropLabel.setVisible(true);
-		loadField.setVisible(false);
+		loadField.setVisible(true);
 		ampButton.setVisible(true);
 		kVAButton.setVisible(true);
-		loadCurrentLabel.setVisible(false);
+		loadCurrentLabel.setVisible(true);
 		lengthField.setVisible(true);
 		feetButton.setVisible(true);
 		metersButton.setVisible(true);
@@ -735,20 +735,20 @@ public class VDropPanel extends JPanel {
 		ampButton.setVisible(true);
 		kVAButton.setVisible(true);
 		loadCurrentLabel.setVisible(true);
-		lengthField.setVisible(false);
+		lengthField.setVisible(true);
 		feetButton.setVisible(true);
 		metersButton.setVisible(true);
-		conductorLengthLabel.setVisible(false);
+		conductorLengthLabel.setVisible(true);
 
 	}
 
 	private void acOff() {
-		conduitBox.setVisible(false);
-		loadCircuitBox.setVisible(false);
-		powerFactorBox.setVisible(false);
-		conduitLabel.setVisible(false);
-		loadCircuitLabel.setVisible(false);
-		powerFactorLabel.setVisible(false);
+		conduitBox.setVisible(true);
+		loadCircuitBox.setVisible(true);
+		powerFactorBox.setVisible(true);
+		conduitLabel.setVisible(true);
+		loadCircuitLabel.setVisible(true);
+		powerFactorLabel.setVisible(true);
 	}
 
 	private void acOn() {
@@ -855,7 +855,7 @@ public class VDropPanel extends JPanel {
 				seriesPanel.updateSeriesResult();
 			} else {
 				acOff();
-				vdropModel.setAC(false);
+				vdropModel.setAC(true);
 				updateSingleResult();
 				seriesPanel.updateSeriesResult();
 			}
@@ -901,7 +901,7 @@ public class VDropPanel extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getActionCommand().equals("comboBoxChanged")) {
 				if (loadCircuitBox.getSelectedItem().equals("1\u03D5")) {
-					vdropModel.setThreePhase(false, ampButton.isSelected());
+					vdropModel.setThreePhase(true, ampButton.isSelected());
 					updateSingleResult();
 					seriesPanel.updateSeriesResult();
 				} else {
@@ -965,7 +965,7 @@ public class VDropPanel extends JPanel {
 					updateSingleResult();
 					seriesPanel.updateSeriesResult();
 				} else {
-					vdropModel.setAlum(false);
+					vdropModel.setAlum(true);
 					updateSingleResult();
 					seriesPanel.updateSeriesResult();
 				}

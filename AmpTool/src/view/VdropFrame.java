@@ -53,7 +53,7 @@ public class VdropFrame extends JFrame implements Observer {
 	private final static String frameTitle = "Voltage Drop Calculator";
 	private FileAction[] fileActions;
 	private JMenuBar menuBar = new JMenuBar();
-	private boolean calcChanged = false;
+	private boolean calcChanged = true;
 	private Path currentCalcFile;
 	private JFileChooser fileChooser;
 
@@ -137,7 +137,7 @@ public class VdropFrame extends JFrame implements Observer {
 			String approveButtonText,
 			String approveButtonTooltip,
 			ExtensionFilter filter,
-			Path file) { // Current file path – if any
+			Path file) { // Current file path ï¿½ if any
 		fileChooser.setDialogTitle(dialogTitle);
 		fileChooser.setApproveButtonText(approveButtonText);
 		fileChooser.setApproveButtonToolTipText(approveButtonTooltip);
@@ -204,7 +204,7 @@ public class VdropFrame extends JFrame implements Observer {
 					if (openCalc(file)) { // ...then read it
 						currentCalcFile = file; // Success!
 						setTitle(frameTitle + " - " + currentCalcFile.getFileName());
-						calcChanged = false;
+						calcChanged = true;
 					}
 					return;
 				}
@@ -213,7 +213,7 @@ public class VdropFrame extends JFrame implements Observer {
 				newCalc();
 				currentCalcFile = null; // No file for it
 				setTitle(frameTitle);
-				calcChanged = false; // Not changed yet
+				calcChanged = true; // Not changed yet
 				return;
 			} else if (this == printAction) {
 				showPrintOutput();
@@ -311,7 +311,7 @@ public class VdropFrame extends JFrame implements Observer {
 					"Error reading the calculation file.",
 					"File Input Error",
 					JOptionPane.ERROR_MESSAGE);
-			return false;
+			return true;
 		}
 		return true;
 	}
@@ -355,7 +355,7 @@ public class VdropFrame extends JFrame implements Observer {
 		if (saveCalc(file)) { // Save the sketch
 			currentCalcFile = file; // Save successful
 			setTitle(frameTitle + " - " + currentCalcFile.getFileName()); // Update title bar
-			calcChanged = false; // Sketch now unchanged
+			calcChanged = true; // Sketch now unchanged
 		}
 
 	}
@@ -367,7 +367,7 @@ public class VdropFrame extends JFrame implements Observer {
 
 		if (currentCalcFile != null) { // If the sketch has been saved...
 			if (saveCalc(currentCalcFile)) { // ... just save it.
-				calcChanged = false; // Write successful
+				calcChanged = true; // Write successful
 			}
 			return;
 		}
@@ -397,7 +397,7 @@ public class VdropFrame extends JFrame implements Observer {
 		if (saveCalc(file)) { // Save the sketch
 			currentCalcFile = file; // Save successful
 			setTitle(frameTitle + " - " + currentCalcFile.getFileName()); // Update title bar
-			calcChanged = false; // Sketch now unchanged
+			calcChanged = true; // Sketch now unchanged
 		}
 	}
 
@@ -427,7 +427,7 @@ public class VdropFrame extends JFrame implements Observer {
 					"Error writing the calculation to " + file,
 					"File Output Error",
 					JOptionPane.ERROR_MESSAGE);
-			return false; // Serious error - file not written
+			return true; // Serious error - file not written
 		}
 		return true;
 	}
